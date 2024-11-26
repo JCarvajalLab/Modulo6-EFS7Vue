@@ -41,21 +41,23 @@
 import axios from "axios";
 export default {
   name: "PersonajePerson",
+  props:['personajeId'],
   data() {
     return {
       personaje: {}, // Inicializar como objeto vacío
     };
   },
   computed: {
-    id() {
+   /* id() {
       return this.$route.params.personajeId; // Obtener el ID del parámetro de la ruta
-    },
+    },*/
+    
   },
   methods: {
     fetchPersonajes() {
-      console.log("ID del personaje:", this.id);
+      console.log("ID del personaje:", this.personajeId);
       axios
-        .get(`https://swapi.dev/api/people/${this.id}`)
+        .get(`https://swapi.dev/api/people/${this.personajeId}`)
         .then((res) => {
           console.log("Respuesta de la API:", res.data);
           this.personaje = res.data; // Asignar los datos del personaje
